@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="yes"?>
+<!--
+Cubemaps page: http://www.humus.ca/index.php?page=Textures
+Hyperion Demo page: http://www.ozone3d.net/demos_projects/skybox.php
+DATE: 2007-01-31
+AUTHOR: JeGX
+-->
+<demoniak3d>
+
+
+
+<scene name="Cubemap_Viewer" display_fps="TRUE" show_ref_grid="TRUE" 
+       vsync="TRUE"  > 
+
+	<window_size width="1280" height="1024" />
+	<background_color r="0.0" g="0.0" b="0.0" />
+	
+</scene>
+
+
+
+
+<camera name="Main_Camera" fov="70.0" active="TRUE" navigation_mode="EXAMINE" >
+	<position x="0.0" y="100.0" z="200.0" />
+	<orientation pitch="20.0" yaw="90.0" />
+</camera>
+
+
+
+
+
+
+<skybox name="sky" >
+	<xpos_face filename="data/Vasa/posx.jpg" />
+	<xneg_face filename="data/Vasa/negx.jpg" />
+	<ypos_face filename="data/Vasa/posy.jpg" />
+	<yneg_face filename="data/Vasa/negy.jpg" uv_map_op="SWAP_V" />
+	<zpos_face filename="data/Vasa/posz.jpg" />
+	<zneg_face filename="data/Vasa/negz.jpg" uv_map_op="SWAP_U"/>
+</skybox>
+
+
+
+
+
+</demoniak3d>
+
