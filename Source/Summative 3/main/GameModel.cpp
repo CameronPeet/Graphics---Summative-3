@@ -153,8 +153,6 @@ void GameModel::render() {
 	GLuint exponentLoc = glGetUniformLocation(program, "exponent");
 	glUniform1f(exponentLoc, 0.017f);
 
-
-
 	// Spot light
 	//lightingShader.setUniform("spotLight.position", spotlightPos);
 	//lightingShader.setUniform("lightDirection", camera->getLook());

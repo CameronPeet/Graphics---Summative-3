@@ -183,7 +183,7 @@ void init()
 	light->setProgram(flatShaderProgram);
 	light->setColor(glm::vec3(1.0f, 0.0f, 0.0f));
 	//light->setPosition(glm::vec3(0.0f, 100.0f, 0.0f));
-	light->setPosition(glm::vec3(0.0f, 40.0f, -22.0f));
+	//light->setPosition(glm::vec3(0.0f, 40.0f, -22.0f));
 	//light->setScale(glm::vec3(20.0f, 20.0f, 20.0f));
 	light->setSpeed(10.0f);
 
@@ -274,12 +274,12 @@ void init()
 	//GLuint modelProgram = shader.CreateProgram("Assets/Shaders/mesh.vs", "Assets/Shaders/mesh.fs");
 	////my3DModel = new Model("Assets/Models/castle/Castle OBJ.obj", camera, modelProgram);
 
-	//pointlight = new Light(ModelType::kSphere, camera);
-	//pointlight->setProgram(flatShaderProgram);
-	//pointlight->setColor(glm::vec3(1.0f, 1.0f, 1.0f));
+	pointlight = new Light(ModelType::kSphere, camera);
+	pointlight->setProgram(flatShaderProgram);
+	pointlight->setColor(glm::vec3(1.0f, 1.0f, 1.0f));
 	//pointlight->setPosition(glm::vec3(2.0f, 43.8f, 14.0f));
-	//
-	//lampPost = new Model("Assets/Models/lampPost.obj", camera, PointLightProgram, pointlight);
+	
+	lampPost = new Model("Assets/Models/lampPost.obj", camera, PointLightProgram, pointlight);
 
 	//robot = new Model("Assets/Models/robot.obj", camera, PointLightProgram, pointlight);
 	//crate = new Model("Assets/Models/crate.obj", camera, PointLightProgram, pointlight);
@@ -299,7 +299,7 @@ void init()
 	////bowling->setScale(glm::vec3(0.01f, 0.01f, 0.01f));
 	//bowling->setPosition(glm::vec3(20.0f, 37.0f, 2.0f));
 	//
-	//lampPost->setPosition(glm::vec3(2.0f, 40.0f, 14.0f));
+	lampPost->setPosition(glm::vec3(2.0f, 40.0f, 14.0f));
 	//robot->setScale(glm::vec3(1.0f, 1.0f, -1.0f));
 	//robot->setPosition(glm::vec3(0.0f, 39.0f, 15.0f));
 	//crate->setPosition(glm::vec3(4.0f, 40.0f, 15.0f));
@@ -329,6 +329,7 @@ void init()
 
 	GLuint toonShaderProgram = shader.CreateProgram("Assets/shaders/toon.vs", "Assets/shaders/toon.fs");
 	bowling = new Model("Assets/Models/bowling_pin.obj", camera, toonShaderProgram, pointlight);
+	my3DModel = new Model("Assets/Models/castle/Castle OBJ.obj", camera, toonShaderProgram, pointlight);
 
 }
 
@@ -618,11 +619,11 @@ void update()
 	updateControls();
 
 	camera->update();
-	/*light->update(dt);
-	triangle->update(dt);
-	ground->update(dt);
-	cube->update(dt);
-	sphere->update(dt);*/
+	light->update(dt);
+	//triangle->update(dt);
+	//ground->update(dt);
+	//cube->update(dt);
+	//sphere->update(dt);
 
 
 	//label->setText(std::to_string(dt).c_str());
@@ -667,7 +668,7 @@ void render()
 
 	//** for fog disable skybox
 	//render skybox first
-	//light->render();
+	light->render();
 	//ground->render();
 	//triangle->render();
 
@@ -698,7 +699,7 @@ void render()
 
 	//glDisable(GL_SCISSOR_TEST);
 
-	//my3DModel->Draw();
+	my3DModel->Draw();
 
 	//terrain->draw();
 
@@ -713,9 +714,11 @@ void render()
 	bowling->Draw();
 	//rabbit->Draw();
 	//crate->Draw();
-	//lampPost->Draw();
+	lampPost->Draw();
 	//robot->Draw();
 	//woodcrate->Draw();
+
+	//glutSolidTeapot(100);
 
 	if (bGreyScale)
 	{

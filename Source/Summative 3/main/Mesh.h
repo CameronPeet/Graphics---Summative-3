@@ -201,6 +201,9 @@ public:
 			glActiveTexture(GL_TEXTURE0 + i);
 			glBindTexture(GL_TEXTURE_2D, 0);
 		}
+
+		GLuint lightDirLoc = glGetUniformLocation(program, "lightDir");
+		glUniform3f(lightDirLoc, this->light->getDirection().x, this->light->getDirection().y, this->light->getDirection().z);
 	}
 
 	void moveForward() {
