@@ -69,6 +69,8 @@ FMOD::System* audioMgr;
 FMOD::Sound* hitSound;
 FMOD::Sound* bgMusic;
 
+std::vector<Light*> vecBullets;
+
 Camera* camera;
 Light* light;
 GameModel* triangle;
@@ -184,8 +186,20 @@ void init()
 	light->setColor(glm::vec3(1.0f, 0.0f, 0.0f));
 	//light->setPosition(glm::vec3(0.0f, 100.0f, 0.0f));
 	//light->setPosition(glm::vec3(0.0f, 40.0f, -22.0f));
-	//light->setScale(glm::vec3(20.0f, 20.0f, 20.0f));
+	light->setPosition(camera->getCameraPosition());
+	light->setScale(glm::vec3(0.1f, 0.1f, 0.1f));
 	light->setSpeed(10.0f);
+
+	for (int i = 0; i < 10; i++)
+	{
+		Light* bullet = new Light(ModelType::kSphere, camera);
+		bullet->setProgram(flatShaderProgram);
+		bullet->setColor(glm::vec3(0.0f, 1.0f, 1.0f));
+		bullet->setPosition(camera->getCameraPosition() + camera->getLook());
+		bullet->setScale(glm::vec3(0.01f, 0.01f, 0.01f));
+		bullet->setSpeed(10.0f);
+		vecBullets.push_back(bullet);
+	}
 
 	triangle = new GameModel(ModelType::kTriangle, camera, "Assets/Images/wall.jpg", light, 0.1f, 0.5f);
 	triangle->setProgram(litTexturedShaderProgram);
@@ -519,6 +533,12 @@ void updateControls()
 	if (keyState[(unsigned char) '6'] == BUTTON_DOWN) {
 		bGreyScale = true;
 	}
+
+	if (keyState[32] == BUTTON_DOWN) 
+	{
+		light->setPosition(camera->getCameraPosition() + camera->getLook());
+		light->setVelocity(camera->getLook());
+	}
 }
 
 bool checkCollision(GameModel* obj1, GameModel* obj2)
@@ -619,6 +639,7 @@ void update()
 	updateControls();
 
 	camera->update();
+
 	light->update(dt);
 	//triangle->update(dt);
 	//ground->update(dt);
@@ -671,6 +692,8 @@ void render()
 	light->render();
 	//ground->render();
 	//triangle->render();
+
+	vecBullets[0]->render();
 
 	/*if (iCull == 1)
 	{

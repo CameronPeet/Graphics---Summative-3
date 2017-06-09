@@ -16,6 +16,8 @@ Light::~Light()
 
 Light::Light(ModelType _type, Camera* _camera)
 {
+	velocity = glm::vec3(0.0, 0.0, 0.0);
+
 	type = _type;
 	camera = _camera;
 
@@ -68,6 +70,8 @@ Light::Light(ModelType _type, Camera* _camera)
 
 void Light::update(GLfloat _deltaTime)
 {
+	position += velocity * _deltaTime * 1.0f;;
+
 	deltaTime = _deltaTime;
 	model = glm::translate(glm::mat4(), position);
 	model = glm::scale(model, scale);
@@ -160,6 +164,11 @@ void Light::setScale(glm::vec3 _scale)
 void Light::setSpeed(GLfloat _speed)
 {
 	speed = _speed;
+}
+
+void Light::setVelocity(glm::vec3 _velocity)
+{
+	velocity = _velocity;
 }
 
 glm::vec3 Light::getDirection()

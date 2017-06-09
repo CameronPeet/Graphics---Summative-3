@@ -17,6 +17,7 @@ public:
 	void setPosition(glm::vec3 _position);
 	void setScale(glm::vec3 _scale);
 	void setSpeed(GLfloat _speed);
+	void setVelocity(glm::vec3 _velocity);
 
 	void moveForward();
 	void moveBackward();
@@ -52,6 +53,7 @@ private:
 	GLfloat deltaTime;
 
 	glm::vec3 direction;
+	glm::vec3 velocity;
 };
 
 
