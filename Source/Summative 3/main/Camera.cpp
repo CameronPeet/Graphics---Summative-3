@@ -201,3 +201,8 @@ glm::vec3 Camera::getLook()
 {
 	return Front;
 }
+
+void Camera::setCameraPosition(glm::vec3 _position)
+{
+	Position = _position;
+}

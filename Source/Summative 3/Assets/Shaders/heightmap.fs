@@ -96,9 +96,9 @@ void main(){
 
 		vec3 totalColor = (ambient + diffuse + specular /*+ rim*/) * objectColor;
 	
-		color = vec4(totalColor, 1.0f) * vTexColor;
+		//color = vec4(totalColor, 1.0f) * vTexColor;
 		
-		//color =  vTexColor;
+		color =  vTexColor;
 
 		//fog
 		float d = distance(worldPos, cameraPos);

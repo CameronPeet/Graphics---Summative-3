@@ -65,6 +65,7 @@ public:
 	void ProcessMouseScroll(int yoffset);
 	void ProcessMouseMovement(GLfloat xoffset, GLfloat yoffset);
 	
+	void setCameraPosition(glm::vec3 _position);
 	glm::vec3 getCameraPosition();
 	void setCameraSpeed(GLfloat _speed);
 	void moveForward();

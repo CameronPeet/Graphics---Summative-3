@@ -87,7 +87,12 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
+    <Link>
+      <AdditionalLibraryDirectories>$(ProjectDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>fmod_vc.lib;opengl32.lib;glew32.lib;freeglut.lib;SOIL.lib;freetype.lib;assimp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+    </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
@@ -112,10 +117,13 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
+      <AdditionalIncludeDirectories>$(SolutionDir)include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
+      <AdditionalLibraryDirectories>$(ProjectDir)lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalDependencies>fmod_vc.lib;opengl32.lib;glew32.lib;freeglut.lib;SOIL.lib;freetype.lib;assimp.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -126,6 +134,8 @@
     <ClCompile Include="main\GeometryModel.cpp" />
     <ClCompile Include="main\Light.cpp" />
     <ClCompile Include="main\main.cpp" />
+    <ClCompile Include="main\PerlinNoise.cpp" />
+    <ClCompile Include="main\ProceduralTerrain.cpp" />
     <ClCompile Include="main\ReflectionModel.cpp" />
     <ClCompile Include="main\ShaderLoader.cpp" />
     <ClCompile Include="main\StencilMirror.cpp" />
@@ -147,6 +157,7 @@
     <ClInclude Include="main\Mesh.h" />
     <ClInclude Include="main\Model.h" />
     <ClInclude Include="main\PerlinNoiseTess.h" />
+    <ClInclude Include="main\ProceduralTerrain.h" />
     <ClInclude Include="main\ReflectionModel.h" />
     <ClInclude Include="main\ShaderLoader.h" />
     <ClInclude Include="main\StencilMirror.h" />

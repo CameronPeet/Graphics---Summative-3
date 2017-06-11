@@ -37,6 +37,7 @@
 #include "GeometryModel.h"
 #include "TessModel.h"
 #include "FrameBuffer.h"
+#include "ProceduralTerrain.h"
 
 float currentTime;
 float prevTime;
@@ -84,6 +85,7 @@ StencilModel* stencilModel;
 StencilMirror* stencilMirror;
 Model* my3DModel;
 Terrain* terrain;
+ProceduralTerrain* pterrain;
 GeometryModel* geomModel;
 TessModel* tessModel;
 FrameBuffer *frameBuffer;
@@ -178,7 +180,7 @@ void init()
 
 	camera = new Camera(45.0f, Utils::WIDTH, Utils::HEIGHT, 0.1f, 10000.0f);
 	//camera = new Camera(45.0f, Utils::WIDTH, Utils::HEIGHT, 0.1f, 100.0f);
-	camera->setCameraSpeed(15.0f);
+	camera->setCameraSpeed(25.0f);
 
 	light = new Light(ModelType::kSphere, camera);
 	//light = new Light(ModelType::kCube, camera);
@@ -322,14 +324,25 @@ void init()
 
 
 	////terrain
-	//GLuint terrainProgram = shader.CreateProgram("Assets/shaders/heightmap.vs", "Assets/shaders/heightmap.fs");
-	//terrain = new Terrain(L"Assets/heightmap/grandcanyon2.raw",
-	//	"Assets/heightmap/sand.jpg",
-	//	"Assets/heightmap/grass.jpg",	
-	//	"Assets/heightmap/rock.jpg",
-	//	terrainProgram,
-	//	camera,
-	//	light);
+	GLuint terrainProgram = shader.CreateProgram("Assets/shaders/heightmap.vs", "Assets/shaders/heightmap.fs");
+	terrain = new Terrain(L"Assets/heightmap/grandcanyon2.raw",
+		"Assets/heightmap/sand.jpg",
+		"Assets/heightmap/grass.jpg",	
+		"Assets/heightmap/rock.jpg",
+		terrainProgram,
+		camera,
+		light);
+
+	pterrain = new ProceduralTerrain(L"noise.ppm",
+		"assets/heightmap/sand.jpg",
+		"assets/heightmap/rock.jpg",
+		"assets/heightmap/crack.png",
+		terrainProgram,
+		camera,
+		light);
+
+	pterrain->m_Position = glm::vec3(0.0f, 0.0f, 0.0f);
+	pterrain->ObjectColor = glm::vec3(0.5f, 0.5f, 0.5f);
 
 	////blending
 	//GLuint blendProgram = shader.CreateProgram("Assets/shaders/blending.vs", "Assets/shaders/blending.fs");
@@ -537,7 +550,9 @@ void updateControls()
 	if (keyState[32] == BUTTON_DOWN) 
 	{
 		light->setPosition(camera->getCameraPosition() + camera->getLook());
-		light->setVelocity(camera->getLook());
+		float fScalar = 100.0f;
+		glm::vec3 speed = glm::vec3(camera->getLook().x * fScalar, camera->getLook().y * fScalar, camera->getLook().z * fScalar);
+		light->setVelocity(speed);
 	}
 }
 
@@ -638,6 +653,10 @@ void update()
 
 	updateControls();
 
+	glm::vec3 pos = camera->getCameraPosition();
+	pos.y = pterrain->GetYPoint(*camera) + 1.0f;
+	camera->setCameraPosition(pos);
+
 	camera->update();
 
 	light->update(dt);
@@ -722,9 +741,10 @@ void render()
 
 	//glDisable(GL_SCISSOR_TEST);
 
-	my3DModel->Draw();
+	//my3DModel->Draw();
 
-	//terrain->draw();
+	terrain->draw();
+	pterrain->Render();
 
 	//blendModelFence->render();
 
