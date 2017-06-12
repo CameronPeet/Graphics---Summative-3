@@ -1,34 +1,21 @@
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\debug\vc140.pdb
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\debug\vc140.idb
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\debug\camera.obj
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\debug\cubemap.obj
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\debug\framebuffer.obj
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\debug\gamemodel.obj
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\debug\geometrymodel.obj
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\debug\light.obj
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\debug\main.obj
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\debug\reflectionmodel.obj
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\debug\shaderloader.obj
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\debug\stencilmirror.obj
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\debug\stencilmodel.obj
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\debug\terrain.obj
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\debug\tessmodel.obj
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\debug\textlabel.obj
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\debug\utils.obj
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\debug\perlinnoise.obj
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\debug\proceduralterrain.obj
-c:\users\charmaine\documents\repos\graphics summative 3\source\debug\summative 3.ilk
-c:\users\charmaine\documents\repos\graphics summative 3\source\debug\summative 3.exe
-c:\users\charmaine\documents\repos\graphics summative 3\source\debug\summative 3.pdb
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\debug\summative 3.tlog\cl.command.1.tlog
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\debug\summative 3.tlog\cl.read.1.tlog
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\debug\summative 3.tlog\cl.write.1.tlog
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\debug\summative 3.tlog\link.12256-cvtres.read.1.tlog
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\debug\summative 3.tlog\link.12256-cvtres.write.1.tlog
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\debug\summative 3.tlog\link.12256-rc.read.1.tlog
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\debug\summative 3.tlog\link.12256-rc.write.1.tlog
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\debug\summative 3.tlog\link.12256.read.1.tlog
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\debug\summative 3.tlog\link.12256.write.1.tlog
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\debug\summative 3.tlog\link.command.1.tlog
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\debug\summative 3.tlog\link.read.1.tlog
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\debug\summative 3.tlog\link.write.1.tlog
+h:\repos\graphics summative 3\source\summative 3\debug\vc140.pdb
+h:\repos\graphics summative 3\source\summative 3\debug\vc140.idb
+h:\repos\graphics summative 3\source\summative 3\debug\camera.obj
+h:\repos\graphics summative 3\source\summative 3\debug\cubemap.obj
+h:\repos\graphics summative 3\source\summative 3\debug\framebuffer.obj
+h:\repos\graphics summative 3\source\summative 3\debug\light.obj
+h:\repos\graphics summative 3\source\summative 3\debug\main.obj
+h:\repos\graphics summative 3\source\summative 3\debug\perlinnoise.obj
+h:\repos\graphics summative 3\source\summative 3\debug\proceduralterrain.obj
+h:\repos\graphics summative 3\source\summative 3\debug\shaderloader.obj
+h:\repos\graphics summative 3\source\summative 3\debug\tessmodel.obj
+h:\repos\graphics summative 3\source\summative 3\debug\utils.obj
+h:\repos\graphics summative 3\source\debug\summative 3.ilk
+h:\repos\graphics summative 3\source\debug\summative 3.exe
+h:\repos\graphics summative 3\source\debug\summative 3.pdb
+h:\repos\graphics summative 3\source\summative 3\debug\summative 3.tlog\cl.command.1.tlog
+h:\repos\graphics summative 3\source\summative 3\debug\summative 3.tlog\cl.read.1.tlog
+h:\repos\graphics summative 3\source\summative 3\debug\summative 3.tlog\cl.write.1.tlog
+h:\repos\graphics summative 3\source\summative 3\debug\summative 3.tlog\link.command.1.tlog
+h:\repos\graphics summative 3\source\summative 3\debug\summative 3.tlog\link.read.1.tlog
+h:\repos\graphics summative 3\source\summative 3\debug\summative 3.tlog\link.write.1.tlog

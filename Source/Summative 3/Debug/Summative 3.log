@@ -1,26 +1,12 @@
 ﻿  main.cpp
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\main\main.cpp(60): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\main\main.cpp(61): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\main\main.cpp(484): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\main\main.cpp(485): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\main\main.cpp(486): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\main\main.cpp(487): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\main\main.cpp(488): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\main\main.cpp(489): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\main\main.cpp(490): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\main\main.cpp(496): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\main\main.cpp(497): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\main\main.cpp(498): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\main\main.cpp(499): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\main\main.cpp(500): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\main\main.cpp(501): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\main\main.cpp(502): warning C4800: 'int': forcing value to bool 'true' or 'false' (performance warning)
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\main\main.cpp(648): warning C4244: 'initializing': conversion from 'int' to 'GLfloat', possible loss of data
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\main\main.cpp(793): warning C4244: 'initializing': conversion from 'int' to 'GLfloat', possible loss of data
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\main\main.cpp(794): warning C4244: 'initializing': conversion from 'int' to 'GLfloat', possible loss of data
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\main\main.cpp(856): warning C4244: 'initializing': conversion from 'int' to 'GLfloat', possible loss of data
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\main\main.cpp(857): warning C4244: 'initializing': conversion from 'int' to 'GLfloat', possible loss of data
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\main\main.cpp(880): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-c:\users\charmaine\documents\repos\graphics summative 3\source\summative 3\main\main.cpp(881): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  Summative 3.vcxproj -> C:\Users\Charmaine\Documents\repos\Graphics Summative 3\Source\Debug\Summative 3.exe
-  Summative 3.vcxproj -> C:\Users\Charmaine\Documents\repos\Graphics Summative 3\Source\Debug\Summative 3.pdb (Partial PDB)
+h:\repos\graphics summative 3\source\summative 3\main\main.cpp(44): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+h:\repos\graphics summative 3\source\summative 3\main\main.cpp(45): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+h:\repos\graphics summative 3\source\summative 3\main\main.cpp(273): warning C4244: 'initializing': conversion from 'int' to 'GLfloat', possible loss of data
+h:\repos\graphics summative 3\source\summative 3\main\main.cpp(418): warning C4244: 'initializing': conversion from 'int' to 'GLfloat', possible loss of data
+h:\repos\graphics summative 3\source\summative 3\main\main.cpp(419): warning C4244: 'initializing': conversion from 'int' to 'GLfloat', possible loss of data
+h:\repos\graphics summative 3\source\summative 3\main\main.cpp(481): warning C4244: 'initializing': conversion from 'int' to 'GLfloat', possible loss of data
+h:\repos\graphics summative 3\source\summative 3\main\main.cpp(482): warning C4244: 'initializing': conversion from 'int' to 'GLfloat', possible loss of data
+h:\repos\graphics summative 3\source\summative 3\main\main.cpp(505): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+h:\repos\graphics summative 3\source\summative 3\main\main.cpp(506): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+  Summative 3.vcxproj -> H:\repos\Graphics Summative 3\Source\Debug\Summative 3.exe
+  Summative 3.vcxproj -> H:\repos\Graphics Summative 3\Source\Debug\Summative 3.pdb (Partial PDB)
