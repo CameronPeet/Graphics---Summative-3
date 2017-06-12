@@ -77,20 +77,6 @@ Cubemap::Cubemap(GLuint cubemapProgram, Camera* camera)
 	faces.push_back("Assets/Images/skybox1/back.jpg");
 	faces.push_back("Assets/Images/skybox1/front.jpg");
 
-	//faces.push_back("Assets/Images/SwedishRoyalCastle/right.jpg");
-	//faces.push_back("Assets/Images/SwedishRoyalCastle/left.jpg");
-	//faces.push_back("Assets/Images/SwedishRoyalCastle/top.jpg");
-	//faces.push_back("Assets/Images/SwedishRoyalCastle/bottom.jpg");
-	//faces.push_back("Assets/Images/SwedishRoyalCastle/back.jpg");
-	//faces.push_back("Assets/Images/SwedishRoyalCastle/front.jpg");
-
-	/*faces.push_back("Assets/Images/Park2/right.jpg");
-	faces.push_back("Assets/Images/Park2/left.jpg");
-	faces.push_back("Assets/Images/Park2/top.jpg");
-	faces.push_back("Assets/Images/Park2/bottom.jpg");
-	faces.push_back("Assets/Images/Park2/back.jpg");
-	faces.push_back("Assets/Images/Park2/front.jpg");*/
-
 	texture = loadCubemap(faces);
 }
 

@@ -1,14 +1,12 @@
-#version 430 core
+#version 430
 
-layout (location = 0) out vec4 color;
+uniform sampler2D srcTex;
 
+in vec2 texCoord;
+out vec4 color;
 
-in float intensity;
-
-
-void main(void)
+void main() 
 {
-	//Blend between red-hot and cool-blue based on the age of the particle
-
-	color = mix(vec4(0.0f, 0.2f, 1.0f, 1.0f), vec4(0.2f, 0.05f, 0.0f, 1.0f), intensity);
+	float c = texture(srcTex, texCoord).x;
+	color = vec4(c, c, 1.0, 1.0);
 }

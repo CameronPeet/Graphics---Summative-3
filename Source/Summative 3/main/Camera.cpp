@@ -31,10 +31,6 @@ Camera::Camera(GLfloat _fov, GLuint _width, GLuint _height, GLfloat zNear, GLflo
 	FarClipping = zFar;
 
 	Position = glm::vec3(0.0f, 0.0f, 10.0f);
-	//Front = glm::vec3(0.0f, 0.0f, -1.0f);
-	//Up = glm::vec3(0.0f, 1.0f, 0.0f);
-
-	//Position = glm::vec3(0.0f, 42.0f, 3.0f);
 	Front = glm::vec3(0.0f, 0.0f, -1.0f);
 	Up = glm::vec3(0.0f, 1.0f, 0.0f);
 
@@ -47,12 +43,6 @@ Camera::Camera(GLfloat _fov, GLuint _width, GLuint _height, GLfloat zNear, GLflo
 
 void Camera::Reset()
 {
-	//FOV = _fov;
-	//width = _width;
-	//height = _height;
-	//NearClipping = zNear;
-	//FarClipping = zFar;
-
 	Position = glm::vec3(0.0f, 0.0f, 3.0f);
 	Front = glm::vec3(0.0f, 0.0f, -1.0f);
 	Up = glm::vec3(0.0f, 1.0f, 0.0f);
@@ -118,7 +108,7 @@ void Camera::ProcessMouseMovement(GLfloat xoffset, GLfloat yoffset)
 
 	Pitch = glm::clamp(Pitch, -89.0f, 89.0f);
 
-	// Update Front, Right and Up Vectors using the updated Eular angles
+	// Update Front, Right and Up Vectors using the updated Euler angles
 	this->updateCameraVectors();
 }
 
@@ -133,7 +123,7 @@ void Camera::ProcessMouseScroll(int yoffset)
 	FOV = glm::clamp(FOV, 1.0f, 120.0f);
 }
 
-// Calculates the front vector from the Camera's (updated) Eular Angles
+// Calculates the front vector from the Camera's (updated) Euler Angles
 void Camera::updateCameraVectors()
 {
 	// Calculate the new Front vector

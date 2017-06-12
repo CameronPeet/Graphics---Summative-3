@@ -29,8 +29,9 @@
 #include "TessModel.h"
 #include "FrameBuffer.h"
 #include "ProceduralTerrain.h"
+#include "ParticleEffect.h"
 
-float currentTime;
+//float currentTime;
 float prevTime;
 float deltaTime;
 
@@ -56,14 +57,17 @@ Model* castle;
 ProceduralTerrain* pterrain;
 TessModel* tessModel;
 FrameBuffer *frameBuffer;
+ParticleEffect* m_ParticleEffect;
 
 bool bWireFrame = false;
 bool wireButtonDown = false;
 bool bGreyScale = false;
+bool bComputeShader = true;
+
+int frame = 0;
 
 void init() 
 {
-
 	glPolygonMode(GL_FRONT_AND_BACK, GL_FILL); // use GL_LINE for wireframe mode
 	glEnable(GL_DEPTH_TEST); // enable the depth testing
 	glDepthFunc(GL_LESS);
@@ -102,7 +106,7 @@ void init()
 		"Assets/shaders/tessQuadModel.tes");
 
 	tessModel = new TessModel(tessProgram, camera);
-	tessModel->setPosition(glm::vec3(-3.0f, 180.0f, -10.0f));
+	tessModel->setPosition(glm::vec3(-3.0f, 175.0f, -5.0f));
 
 	//framebuffer
 	GLuint framebufferProgram = shader.CreateProgram("Assets/shaders/framebuffer.vs",
@@ -128,6 +132,11 @@ void init()
 	castle = new Model("Assets/Models/castle/Castle OBJ.obj", camera, toonShaderProgram, light);
 	castle->setPosition(glm::vec3(4.0f, 150.0f, -250.0f));
 
+	GLuint computeProgram = shader.CreateProgram("Assets/shaders/compParticle.comp");
+	GLuint particleProgram = shader.CreateProgram("Assets/shaders/compParticle.vert", "Assets/shaders/compParticle.frag");
+	
+	m_ParticleEffect = new ParticleEffect(computeProgram, particleProgram);
+	m_ParticleEffect->Init();
 }
 
 void updateControls()
@@ -150,8 +159,7 @@ void updateControls()
 	if (keyState[(unsigned char) 'v'] == BUTTON_DOWN)
 	{
 		bWireFrame = true;
-	}
-	
+	}	
 	if (keyState[(unsigned char) 'v'] == BUTTON_UP)
 	{
 		bWireFrame = false;
@@ -165,6 +173,16 @@ void updateControls()
 		glEnable(GL_DEPTH_TEST);
 		bGreyScale = false;
 	}
+
+	if (keyState[(unsigned char) 'c'] == BUTTON_DOWN) {
+		bComputeShader = true;
+		m_ParticleEffect->Init();
+	}
+	if (keyState[(unsigned char) 'c'] == BUTTON_UP)
+	{
+		bComputeShader = false;
+	}
+
 	//space key
 	if (keyState[32] == BUTTON_DOWN) 
 	{
@@ -179,8 +197,6 @@ void update()
 {
 	GLfloat currentTime = glutGet(GLUT_ELAPSED_TIME); // get current time
 	currentTime = currentTime / 1000; // convert millisecond to seconds
-
-	GLfloat dt = currentTime - prevTime;
 	deltaTime = currentTime - prevTime;
 
 	updateControls();
@@ -190,8 +206,7 @@ void update()
 	camera->setCameraPosition(pos);
 
 	camera->update();
-
-	light->update(dt);
+	light->update(deltaTime);
 
 	prevTime = currentTime;
 
@@ -217,20 +232,35 @@ void render()
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 
-	skybox->render();
+	if (!bComputeShader)
+	{
+		skybox->render();
 
-	//** for fog disable skybox
-	//render skybox first
-	light->render();
+		light->render();
+
+		//vecBullets[0]->render();
+
+		tessModel->render();
+
+		castle->Draw();
+
+		pterrain->Render();
+	}
+	else
+	{
+		m_ParticleEffect->Render(frame);
+	}
 	
-	//vecBullets[0]->render();
 
-	tessModel->render();
-
-	castle->Draw();
-
-	pterrain->Render();
-
+	if (frame < 1024)
+	{
+		frame++;
+	}
+	else
+	{
+		frame = 0;
+	}
+		
 	if (bGreyScale)
 	{
 		frameBuffer->endFrameBuffer();
@@ -291,26 +321,6 @@ void mouseScroll(int button, int state, int x, int y)
 		}
 	}
 }
-
-//void mouse(int button, int button_state, int x, int y)
-//{
-//#define state ((button_state == GLUT_DOWN) ? BUTTON_DOWN : BUTTON_UP)
-//
-//	switch (button)
-//	{
-//	case GLUT_LEFT_BUTTON:
-//		//mouseState[MOUSE_LEFT] = state;
-//		break;
-//	case GLUT_MIDDLE_BUTTON:
-//		//mouseState[MOUSE_LEFT] = state;
-//		break;
-//	case GLUT_RIGHT_BUTTON:
-//		//mouseState[MOUSE_LEFT] = state;
-//		break;
-//	default:
-//		break;
-//	}
-//}
 
 void mousePassiveMove(int x, int y)
 {
@@ -374,11 +384,7 @@ int main(int argc, char **argv)
 	glutPassiveMotionFunc(mouseMove);
 	glutMouseFunc(mouseScroll);
 
-	//glutMouseFunc(mouse);
-	//glutPassiveMotionFunc(mousePassiveMove);
-
 	glutMainLoop();
 
 	return 0;
-
 }

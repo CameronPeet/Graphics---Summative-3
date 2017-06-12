@@ -140,7 +140,6 @@
     <ClCompile Include="main\Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="main\Attractor.h" />
     <ClInclude Include="main\Camera.h" />
     <ClInclude Include="main\Cubemap.h" />
     <ClInclude Include="main\FrameBuffer.h" />
@@ -164,8 +163,6 @@
     <None Include="Assets\Shaders\framebuffer.vs" />
     <None Include="Assets\Shaders\heightmap.fs" />
     <None Include="Assets\Shaders\heightmap.vs" />
-    <None Include="Assets\Shaders\mesh.fs" />
-    <None Include="Assets\Shaders\mesh.vs" />
     <None Include="Assets\Shaders\skybox.fs" />
     <None Include="Assets\Shaders\skybox.vs" />
     <None Include="Assets\Shaders\tessQuadModel.tcs" />

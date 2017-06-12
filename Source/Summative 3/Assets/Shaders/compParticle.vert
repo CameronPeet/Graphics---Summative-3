@@ -1,14 +1,10 @@
-#version 430 core
+#version 430
 
-in vec4 vert;
-uniform mat4 mvp;
+in vec2 pos;
+out vec2 texCoord;
 
-out float intenstity;
-
-
-void main(void)
+void main() 
 {
-	//vert.w is the life expectancy of the particle
-	intenstity = vert.w;
-	gl_Position = mvp * vec4(vert.xyz, 1.0);
+	texCoord = pos*0.5f + 0.5f;
+	gl_Position = vec4(pos.x, pos.y, 0.0, 1.0);
 }

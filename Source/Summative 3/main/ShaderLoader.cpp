@@ -157,3 +157,31 @@ GLuint ShaderLoader::CreateProgram(char* vertexShaderFilename, char* fragmentSha
 	}
 	return program;
 }
+
+GLuint ShaderLoader::CreateProgram(char* computeShaderFilename)
+{
+	//read the shader files and save the code
+	std::string compute_shader_code = ReadShader(computeShaderFilename);
+
+	GLuint compute_shader = CreateShader(GL_COMPUTE_SHADER, compute_shader_code, "compute shader");
+
+	int link_result = 0;
+	//create the program handle, attatch the shaders and link it
+	GLuint program = glCreateProgram();
+	glAttachShader(program, compute_shader);
+
+	glLinkProgram(program);
+	glGetProgramiv(program, GL_LINK_STATUS, &link_result);
+	//check for link errors
+	if (link_result == GL_FALSE)
+	{
+
+		int info_log_length = 0;
+		glGetProgramiv(program, GL_INFO_LOG_LENGTH, &info_log_length);
+		std::vector<char> program_log(info_log_length);
+		glGetProgramInfoLog(program, info_log_length, NULL, &program_log[0]);
+		std::cout << "Shader Loader : LINK ERROR" << std::endl << &program_log[0] << std::endl;
+		return 0;
+	}
+	return program;
+}

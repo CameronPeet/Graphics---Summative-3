@@ -84,9 +84,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="main\ParticleEffect.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="main\Attractor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -101,12 +98,6 @@
       <Filter>Resource Files</Filter>
     </None>
     <None Include="Assets\Shaders\skybox.vs">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="Assets\Shaders\mesh.fs">
-      <Filter>Resource Files</Filter>
-    </None>
-    <None Include="Assets\Shaders\mesh.vs">
       <Filter>Resource Files</Filter>
     </None>
     <None Include="Assets\Shaders\heightmap.fs">

@@ -1,6 +1,5 @@
 #include "Light.h"
 
-//#include "Utils.h"
 #include "Camera.h"
 
 #include "glm/gtc/type_ptr.hpp"
