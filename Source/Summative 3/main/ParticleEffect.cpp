@@ -25,6 +25,7 @@ bool ParticleEffect::Init()
 	// Because we're also using this tex as an image (in order to write to it),
 	// we bind it to an image unit as well
 	glBindImageTexture(0, texHandle, 0, GL_FALSE, 0, GL_WRITE_ONLY, GL_R32F);
+	//glBindImageTexture(0, texHandle, 0, GL_FALSE, 0, GL_READ_ONLY, GL_R32F);
 
 	glUseProgram(render_prog);
 	glUniform1i(glGetUniformLocation(render_prog, "srcTex"), 0);
